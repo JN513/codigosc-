@@ -1,2 +1,2 @@
 # codigosc-
-Meus codigos em C++ e C
+Meus codigos em C++, C e python
