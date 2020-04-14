@@ -1,0 +1,171 @@
+header{
+    background-color: orange;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-style: normal;
+    padding: 50px;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.menu{
+    width: 100%;
+    height: 50px;
+    background-color: orange;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu ul{
+    list-style: none;
+    position: relative;
+}
+
+.menu ul li{
+    float: left;
+    width: 150px;
+}
+
+.menu ul li a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    padding: 10px 10px;
+    text-align: center;
+    background-color: orange;
+}
+
+.menu ul ul{
+    position: absolute;
+    visibility: hidden;
+    transition: all .4s;
+}
+
+.menu ul li:hover ul{
+    transition: all .4s;
+    visibility: visible;
+}
+
+.menu ul li a:hover{
+    color: black;
+    background-color: white;
+}
+
+.menu ul ul li{
+    float: none;
+    border-bottom: solid 1px #ccc;
+}
+
+.menu ul ul li a{
+    background-color: #069;
+}
+
+label[for="bt_menu"]{
+    padding: 5px;
+    background-color: #222;
+    color: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 30px;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+
+
+#bt_menu{
+    display: none;
+}
+
+label[for="bt_menu"]
+{
+    display: none;
+}
+
+
+@media(max-width: 800px){
+
+    .menu #busca{
+        display: none;
+        margin-right: -100%;
+    }
+    
+    label[for="bt_menu"]
+    { 
+        display: block;
+    }
+
+    #bt_menu:checked ~ .menu{
+        margin-left: 0;
+    }
+
+    .menu{
+        margin-top: 5px;
+        margin-left: -100%;
+        transition: all .4s;
+    }
+
+    .menu ul li{
+        width: 100%;
+        float none;
+    }
+    .menu ul ul{
+        position: static;
+        overflow: hidden;
+        max-height: 0;
+        transition: all .4s;
+    }
+
+    .menu ul li:hover ul{
+        height: auto;
+        max-height: 200px;
+    }
+            
+}
+
+footer{
+    background-color: orange;
+    color: white;
+    text-decoration: none;
+    padding: 5%;
+    margin-block-end: 0;
+    text-align: center;
+}
+#busca {
+    margin:0 auto;
+    padding:0;
+    display: flex;
+}
+
+#txtbusca {
+    border:0px solid #222;
+    background:#EEE;
+    width:260px;
+    height:23px;
+    margin:0 auto;
+    padding:5px 0 5px 5px;
+    float: none; // posição do campo
+    line-height:36px; // altura da linha
+}
+
+#btnBusca {
+    background:#00cccc;
+    position:relative;
+    border:0px solid #222;
+    color:#FFF; 
+    margin:0 auto;
+    padding:10px;
+    border:0 none;
+    font-size:11px;
+    font-weight:bold;
+    text-transform:uppercase;
+}
+
+#btnBusca:hover {
+    background:#99cccc; 
+}    
