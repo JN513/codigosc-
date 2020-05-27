@@ -52,12 +52,10 @@ int main() //inicio minha função inicial
     cin >> n >> m; // pego os valores de n e m
 
     for (int i = 0; i < n; i++)//pego os valores da matriz
+    for (int j = 0; j < m; j++)
     {
-        for (int j = 0; j < m; j++)
-        {
-            cin >> grid [i][j]; //coleto o valor da posição i e j e coloco na minha matriz grid
-            dist[i][j] = oo; // seto o dist dessa posição como infinito
-        }
+        cin >> grid [i][j]; //coleto o valor da posição i e j e coloco na minha matriz grid
+        dist[i][j] = oo; // seto o dist dessa posição como infinito
     }
 
     dist[0][0] = 0; //falo que a distancia inicial e igual a 0
@@ -65,13 +63,8 @@ int main() //inicio minha função inicial
     bfs(0,0); //chamo a bfs na posição inicial
 
     if (dist[n-1][m-1] == oo) //verifico se a ultima lajota for igual a infinito falo que e impossivel chegar nela
-    {
         cout << "-1"; //se for impossivel imprimo -1
-    }
-    else
-    {
-        cout << dist[n-1][m-1]; // caso contrario imprimo o valor nela
-    }
+    else cout << dist[n-1][m-1]; // caso contrario imprimo o valor nela
 
     return 0; //termino meu codigo
 }

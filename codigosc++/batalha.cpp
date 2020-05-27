@@ -8,58 +8,16 @@ int main()
 
   cin >> a >> b >> c >> d;
 
-  int e = 0;
+  int e = 0, f = 0;
 
-  if (a > d && c == b)
-  {
-    e = 1;
-  }
+  if (a != d) e = 1;
+  if (b  !=  c) f = 1;
+  if (a == d) e = 0;
+  if (b  ==  c) f = 0;
 
-  else
-  {
-
-    if (c > b && a == d)
-    {
-      e = 2;
-    }
-
-    else
-    {
-
-      if (a >= d && b >= c)
-      {
-        e = 1;
-      }
-
-      else
-      {
-
-        if (c >= b && d >= d)
-        {
-          e = 2;
-        }
-
-        else
-        {
-
-          if (c != b && a != d)
-          {
-            e = -1;
-          }
-
-          else
-          {
-
-            if (a != d && c != b)
-            {
-              e = -1;
-            }
-          }
-        }
-      }
-    }
-  }
-  cout << e;
+  if (e == 1 && f == 0) cout<<"1\n";
+  else if(e == 0 && f == 1) cout<<"2\n";
+  else if((e == 0 && f == 0) || (e == 1 && f == 1)) cout <<"-1\n";
 
   return 0;
 }
