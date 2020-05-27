@@ -1,0 +1,7 @@
+foreground: processo de primeiro plano que interage com os usuarios
+backgroud: processos de segundo plano, processos executados pela maquina
+objetos em segundo plano são chamados de daemons
+
+exercicio: pesquisar os tipos de terminos de processos. São 4 tipos!
+
+    1. Quando o processo termina normalmente sua execução!
