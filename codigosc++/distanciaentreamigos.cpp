@@ -18,7 +18,7 @@ int main()
     {
         for (int j = i+1; j < n; j++)
         {
-            temp = v[i]+v[j]+i+1;
+            temp = v[i]+v[j]+(j-i);
             if (temp > r)
             {
                 r = temp;

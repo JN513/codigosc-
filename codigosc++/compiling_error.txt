@@ -1,0 +1,8 @@
+/home/julio/codigosc-/codigosc++/coddobrian.cpp: In function ‘int main()’:
+/home/julio/codigosc-/codigosc++/coddobrian.cpp:6:2: error: ‘gets’ was not declared in this scope
+  gets(&sexo);
+  ^~~~
+/home/julio/codigosc-/codigosc++/coddobrian.cpp:6:2: note: suggested alternative: ‘fgets’
+  gets(&sexo);
+  ^~~~
+  fgets

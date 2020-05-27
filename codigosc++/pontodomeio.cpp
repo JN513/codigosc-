@@ -10,7 +10,7 @@ int main()
 
   cin >>n;
 
-  lado = 2ULL;
+  lado = 2;
 
   while (n-- > 0)
   {

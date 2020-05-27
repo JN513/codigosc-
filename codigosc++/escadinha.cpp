@@ -2,46 +2,24 @@
 
 using namespace std;
 
+int n;
+int r = 1;
+
+int v[1005];
+
 int main()
 {
-
-  int n;
-  int v[1005];
-  int r = 0;
-
   cin >> n;
 
-  for (int i = 1; i <= n; i++)
+  for (int i = 0; i < n; i++)
   {
     cin >> v[i];
   }
 
-  for (int i = 1; i <= n; i++)
+  for (int i = 2; i < n; i++)
   {
-
-    if (v[ i - 2] - v[ i - 1] == v[i - 1] - v[i] || v[ i] - v[ i - 1] == v[i - 1] - v[i - 2] || n <=2 || v[i] - v[i -1] == v[i + 1] - v[i] || v[i - 1] - v[i] == v[i] - v[i - 1])
-    {
-
-      if (n <= 2)
-      {
-        r = r + 1;
-      }
-
-      else
-      {
-        if (v[i + 1] - v[i] ==  v[i + 2] - v[i + 1] || v[i] - v[i + 1] ==  v[i + 1] - v[i + 2])
-        {
-          r = r + 1;
-        }
-
-       else
-        {
-          if (v[i] - v[i + 1] == 0 || v[i  + 1] - v[i] == 0 || v[i] - v[i - 1] == v[i + 1] - v[i] || v[i - 1] - v[i] == v[i] - v[i + 1] )
-          {
-            r = r + 1;
-          }
-        }
-      }
+    if (v[i]-v[i-1]!=v[i-1]-v[i-2]) {
+      r++;
     }
   }
 
