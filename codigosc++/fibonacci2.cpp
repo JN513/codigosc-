@@ -2,18 +2,19 @@
 
 using namespace std;
 
+int fib(long long int a){
+    if(a == 1) return 1;
+    if(a == 0) return 0;
+
+    return fib(a-1)+fib(a-2);
+}
+
 int main(){
     int n;
-    long long int v[35];
 
     cin >> n;
 
-    v[0] = 0;
-    v[1] = 1;
-
-    for(int i = 2; i < n; i++) v[i] = v[i-1]+v[i-2];
-
-    cout << v[n-1];
+    cout << fib(n+1)<<"\n";
 
     return 0;
 }
