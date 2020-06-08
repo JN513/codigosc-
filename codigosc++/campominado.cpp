@@ -1,80 +1,25 @@
-#include <iostream>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main()
-{
+int n, v[52],r[52];
 
-  int n;
-  int v[55];
-  int b[55];
+int main(){
+    scanf("%d",&n);
 
-  cin >> n;
+    for(int i = 1; i <= n; i++) scanf("%d",&v[i]);
 
-  for (int i = 1; i <= n; i++)
-  {
-    cin >> v[i];
-  }
-
-  for (int i = 1; i <= n; i++)
-  {
-    if ( v[i] == 1 && v[i - 1] == 1 && v[i + 1] == 1)
-    {
-      b[i] = 3;
+    for (int i = 1; i <= n; i++) {
+        if (v[i] == 1 && v[i-1] == 1 && v[i+1] == 1) r[i] = 3;
+        if (v[i] == 1 && v[i-1] == 1 && v[i+1] != 1) r[i] = 2;
+        if (v[i] == 1 && v[i-1] != 1 && v[i+1] == 1) r[i] = 2;
+        if (v[i] != 1 && v[i-1] == 1 && v[i+1] == 1) r[i] = 2;
+        if (v[i] != 1 && v[i-1] != 1 && v[i+1] == 1) r[i] = 1;
+        if (v[i] == 1 && v[i-1] != 1 && v[i+1] != 1) r[i] = 1;
+        if (v[i] != 1 && v[i-1] == 1 && v[i+1] != 1) r[i] = 1;
     }
 
-    else
-    {
+    for(int i = 1; i <= n; i++) printf("%d\n", r[i]);
 
-      if ( v[i - 1] == 1 && v[i + 1] == 1)
-      {
-        b[i] = 2;
-      }
-
-      else
-      {
-
-        if ( v[i] == 1 && v[i + 1] == 1)
-        {
-          b[i] = 2;
-        }
-        else{
-            if ( v[i] == 1 && v[i - 1] == 1 )
-            {
-              b[i] = 2;
-            }
-            else
-            {
-              if ( v[i] == 1 )
-              {
-                b[i] = 1;
-              }
-              else
-              {
-
-                if ( v[i - 1] == 1 )
-                {
-                  b[i] = 1;
-                }
-                else
-                {
-
-                  if ( v [i + 1] == 1)
-                  {
-					b[i] = 1;
-              }
-            }
-          }
-        }
-      }
-     }
-    }
-  }
-
-  for (int i = 1; i <= n; i++)
-  {
-    cout << b[i];
-  }
-
-  return 0;
+    return 0;
 }
