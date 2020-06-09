@@ -9,7 +9,7 @@ int main()
 
   cin >> m;
 
-  for(int i = 0; i <= m; i++)
+  for(int i = 0; i < m; i++)
   {
     v[i] = 0;
   }
@@ -33,12 +33,12 @@ int main()
 
   if (r > 1)
   {
-    cout << "S";
+    cout << "S\n";
   }
 
   else
   {
-    cout << "N";
+    cout << "N\n";
   }
 
   return 0;

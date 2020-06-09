@@ -1,55 +1,32 @@
-#include <iostream>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
-int main()
-{
-//  int v[10005];
+int n, v[100005],r[100005],s;
+vector<int> r1;
 
-  int n, r = 0, j = 0;
+int main(){
+    scanf("%d",&n);
 
-  cin >> n;
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &v[i]);
+        r[i] = v[i];
+    }
 
-  int v[n];
+    sort(r,r+n);
 
-  int k[n];
+    for(int i = 0; i < n; i++){
+        if (v[i] != r[i]){
+            s++;
+            r1.push_back(v[i]);
+        }
+    }
 
-  for(int i = 0; i < n ; i++)
-  {
-    cin >> v[i];
-  }
+    printf("%d\n",s);
 
-  for(int i = 0; i < n ; i++)
-  {
+    sort(r1.begin(), r1.end());
 
-    /*    if(v[i] < v[i - 1] && v[i] > v[i + 1])
-        {
-          r = r + 1;
-          k[j] = v[i];
-          j++;
-        }*/
-      //  else
-      //  {
-          if(v[i] > v[i - 1] && v [i] > v[i + 1])
-          {
-            r = r + 1;
-            k[j] = v[i];
-            j++;
-          }
-      //  }
+    for(int i = 0; i < r1.size(); i++) printf("%d ",r1[i]);
 
-
-  }
-
-  cout << r << endl;
-
-  for(int j = 0; j < r ; j++)
-  {
-    cout << v[j] << " ";
-  }
-
-  cout << endl;
-
-  return 0;
+    return 0;
 }
