@@ -2,44 +2,20 @@
 
 using namespace std;
 
+int m, r;
+int v[1005];
+
 int main()
 {
-  int m, x;
-  int v[1005];
+    cin >> m;
 
-  cin >> m;
+    for(int i = 0; i < m; i++) cin >> v[i];
 
-  for(int i = 0; i < m; i++)
-  {
-    v[i] = 0;
-  }
+    for(int i = 0; i < m; i ++)
+        if (v[i] > v[i-1]  && v[i] > v[i+1] )r = r + 1;
 
-  for(int i = 0; i < m; i++)
-  {
-    cin >> x;
-    v[i] = x;
-  }
+    if (r > 1) cout << "S\n";
+    else cout << "N\n";
 
-  int r = 0;
-
-  for(int i = 0; i < m; i ++)
-  {
-    if (v[i] > v[i-1]  && v[i] > v[i+1] )
-    {
-      r = r + 1;
-    }
-
-  }
-
-  if (r > 1)
-  {
-    cout << "S\n";
-  }
-
-  else
-  {
-    cout << "N\n";
-  }
-
-  return 0;
+    return 0;
 }
