@@ -29,39 +29,27 @@ void dfs(int i, int j) //crio minha função de busca
         int xj = j+diry[k];     // crio o cj também para facilitar, pois não precisarei usar todo o conjunto toda vez atenas o xj, o mesmo vale pro xi
 
         if(!ver(xi, xj))continue; // verifico os limites usando a função ver
-
         if(matriz[xi][xj] == 1  ) // se a posição for igual a 1 eu aprico minha fução (dfs) nele
-        {
             dfs(xi, xj); // chamo a função na posição
-        }
     }
 }
 
 int main() //inicio minha função principal
 {
-  int r = 0;    //crio minha variavel de resposta
+  	int r = 0;    //crio minha variavel de resposta
 
-  cin >> n >> m;    //pego os valores de n e m
+  	cin >> n >> m;    //pego os valores de n e m
 
-  for (int i = 0; i < n; i++) //percorro toda matriz coletando todos os valores dentro dos limites
-  {
-      for (int j = 0; j < m; j++)
-      {
-          cin >> matriz[i][j]; //pego o valor da posição i e j
-      }
-  }
+  	for (int i = 0; i < n; i++) //percorro toda matriz coletando todos os valores dentro dos limites
+  	for (int j = 0; j < m; j++) cin >> matriz[i][j]; //pego o valor da posição i e j
 
-  for (int i = 0; i < n; i++)
-  {
-      for (int j = 0; j < m; j++)
-      {
-          if (matriz[i][j] == 1) // checo se minha posição i e j não foi visitada , se não foi visitado crio uma nova mancha
-          {
+  	for (int i = 0; i < n; i++)
+	for (int j = 0; j < m; j++)
+        if (matriz[i][j] == 1) // checo se minha posição i e j não foi visitada , se não foi visitado crio uma nova mancha
+        {
               dfs(i,j); // chamo minha função (dfs na posição i e j)
               r++; // add uma nova mancha
-          }
-      }
-  }
+        }
 
   cout << r << endl; // imprimo minha resposta
 
