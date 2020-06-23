@@ -13,8 +13,8 @@ print("lista")
 
 pop = lista.sort()
 
-for el in lista2:
-    cursiva
+#for el in lista2:
+#    cursiva
 
 print(pop)
 print(lista3)
