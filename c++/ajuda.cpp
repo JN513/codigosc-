@@ -2,8 +2,8 @@
 using namespace std;
 int main()
 {
-    int n, m, resp=0, costa[1005][1005];
-    memset(costa, '.', sizeof(costa));
+    int n, m, resp=0;
+    char costa[1005][1005];
     cin >> m >> n;
     for(int i=1; i<=m; i++){
         for(int j=1; j<=n; j++){

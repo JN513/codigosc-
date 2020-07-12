@@ -4,10 +4,8 @@ def birthday(n,x):
         p *= i
     return 1-p
 
-x = input()
-n= input()
+b , a = input().split(' ')
+b = int(b)
+a = int(a)
 
-x = float(x)
-n = float(n)
-
-print(birthday(n,x))
+print(round(birthday(a,b)*100, 2))

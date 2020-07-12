@@ -20,8 +20,7 @@ int main()
 		z++;
 		int j = 0, k =0;
 
-		for (int i = 0; i < y; i++)
-		{
+		for (int i = 0; i < y; i++){
 			int b, c;
 			cin >> b >> c;
 			v[b].push_back(c);
@@ -29,33 +28,23 @@ int main()
 
 		}
 
-		for (int i = 0; i < x; i++)
-		{
-			if (v[i].size() > j)
-			{
+		for (int i = 0; i < x; i++){
+			if (v[i].size() > j){
 				j = v[i].size();
 				r.clear();
 				r.push_back(i);
 			}
-			else
-			{
-				if(v[i].size() == j)
-				{
-					r.push_back(i);
-				}
-			}
+			else if(v[i].size() == j) r.push_back(i);
 		}
 
 		sort(r.begin(), r.end());
 
 		cout << "Teste "<<z << endl;
-		for (int i = 0; i < r.size(); i++)
-		{
+		for (int i = 0; i < r.size(); i++){
 				cout << r[i]<<" ";
 		}
-
 		r.clear();
-		cout << endl << endl;
+		cout << endl;
 
 		cin >> x >> y;
 

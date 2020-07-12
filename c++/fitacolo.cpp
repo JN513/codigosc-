@@ -32,7 +32,7 @@ int main()
 						break;
 					}
 					else
-					{	
+					{
 						temp = i - j;
 						k[i] = temp;
 						temp = 0;
@@ -51,7 +51,7 @@ int main()
 							break;
 						}
 						else
-						{	
+						{
 							temp = j - i;
 							k[i] = temp;
 							temp = 0;
@@ -64,10 +64,7 @@ int main()
 		}
 	}
 
-	for (int i = 0; i < n; ++i)
-	{
-		cout << k[i];
-	}
+	for (int i = 0; i < n; ++i) cout << k[i];
 
 	return 0;
 }

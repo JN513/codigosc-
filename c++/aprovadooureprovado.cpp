@@ -2,31 +2,16 @@
 
 using namespace std;
 
-int main()
-{
-    double a, b;
+int main(){
+    float a, b;
 
     cin >> a >> b;
 
-    double c = (a+b)/2;
+    float c = (a+b)/2;
 
-    if (c < 4)
-    {
-        cout <<"Reprovado";
-    }
-    else
-    {
-        if (c < 7 && c >= 4)
-        {
-            cout <<"Recuperacao";
-        }
-        else
-        {
-            if (c >= 7)
-            {
-                cout <<"Aprovado";
-            }
-        }
-    }
+    if (c < 4) cout <<"Reprovado";
+    if (c < 7 && c >= 4)cout <<"Recuperacao";
+    if (c >= 7) cout <<"Aprovado";
+
     return 0;
 }
