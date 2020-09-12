@@ -153,18 +153,16 @@ lastoperation(temp);
 
 void list::leftmove(struct link *temp)
 {
-if(head->left<=MIN_X+1)
-{
-	temp->left=MAX_X+1;
-	temp->right=MAX_X+10;
-}
-else
-{
-	temp->left=head->left-10;
-	temp->right=head->right-10;
-}
-temp->top=head->top;
-temp->botom=head->botom;
+	if(head->left<=MIN_X+1){
+		temp->left=MAX_X+1;
+		temp->right=MAX_X+10;
+	}
+	else{
+		temp->left=head->left-10;
+		temp->right=head->right-10;
+	}
+	temp->top=head->top;
+	temp->botom=head->botom;
 }
 void list::topmove(struct link *temp)
 {

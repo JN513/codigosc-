@@ -20,7 +20,6 @@ void dfs(int i, int j){
         int xj = j+dirj[k];
 
         if (!verifica(xi, xj)) continue;
-
         if(matriz[xi][xj] == 1) dfs(xi, xj);
     }
 }

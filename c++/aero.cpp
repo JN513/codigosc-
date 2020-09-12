@@ -2,10 +2,6 @@
 
 using namespace std;
 
-#define NMAX 10005
-
-int a[105];
-
 vector <int> r;
 
 int main()
@@ -16,25 +12,25 @@ int main()
 
 	while(x !=0 && y != 0)
 	{
-		vector <int> v[NMAX];
+		int a[105];
+		for (int i = 0; i <= x; i++) a[i] = 0;
 		z++;
 		int j = 0, k =0;
 
 		for (int i = 0; i < y; i++){
 			int b, c;
 			cin >> b >> c;
-			v[b].push_back(c);
-			v[c].push_back(b);
-
+			a[b] ++;
+			a[c] ++;
 		}
 
-		for (int i = 0; i < x; i++){
-			if (v[i].size() > j){
-				j = v[i].size();
+		for (int i = 1; i <= x; i++){
+			if (a[i] > j){
+				j = a[i];
 				r.clear();
 				r.push_back(i);
 			}
-			else if(v[i].size() == j) r.push_back(i);
+			else if(a[i] == j) r.push_back(i);
 		}
 
 		sort(r.begin(), r.end());
