@@ -11,8 +11,10 @@ int main()
     cin >> n;
 
     for(int i = 0; i < n; i++){
-        cin >> x;
+        cin >> x; 
+        cout << "string x:" << x << endl;
         for(int k = 0 ; k < x.size() ; k++){
+            cout << "k da vez"<<x[k]<<endl;
             if(x[k] == '0') a++;
             if(x[k] == '1') b++;
             if(x[k] == '2') c++;
