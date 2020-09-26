@@ -2,29 +2,16 @@
 
 using namespace std;
 
-int main()
-{
-  int a, b, c, d;
+int main(){
+    int a, b, c, d;
 
-  cin >> a >> b >> c;
+    cin >> a >> b >> c;
 
-  if (  a == b)
-  {
-      d = c;
-  }
+    if ( a == b ) d = c;
+    if ( a == c ) d = b;
+    if ( b == c ) d = a;
 
-  if ( a == c)
-  {
-      d = b;
-  }
+    cout << d;
 
-  if ( b == c)
-  {
-      d = a;
-
-  }
-
-  cout << d;
-
-  return 0;
+    return 0;
 }
