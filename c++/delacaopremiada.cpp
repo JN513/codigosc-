@@ -5,14 +5,11 @@ using namespace std;
 int n, m;
 int v[100005];
 
-int main()
-{
+int main(void){
     cin >> n >> m;
 
-    for (int i = 0; i < n; i++)
-    {
-        cin >> v[i];
-    }
+    for (int i = 0; i < n; i++) cin >> v[i];
+
 
     
 
