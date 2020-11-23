@@ -2,8 +2,7 @@
 
 using namespace std;
 
-int main()
-{
+int main(){
 	int l, x;
 
 	printf("Insira dois numeros\n" );
