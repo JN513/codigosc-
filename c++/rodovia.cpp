@@ -4,67 +4,58 @@ using namespace std;
 
 int n, y;
 
-vector <int> m[10005];
+bool r = true;
+
+vector <int> m[10005], rm[10005];
 int v[10005];
 
-int r =true;
-
-void dfs(int x)
-{
+void dfs(int x){
 	v[x] = 1;
-	for(int i = 0; i < m[x].size() ; i++)
-	{
+	if(m[x].size() > 1) r = false;
+	for(int i = 0; i < m[x].size() ; i++){
+		int u = m[x][i];
 
-		int z = m[x][i];
-
-		if(m[z].size()== 0 || m[z].size() >= 2)
-		{
-		  r = false;
-			v[z] = 1;
-			return;
-		}
-
-		if(v[z] == 0)
-		{
-			dfs(z);
-		}
+		if(v[u] == 0) dfs(u);
 	}
 }
 
-int main()
-{
+void rdfs(int x){
+	v[x] = 1;
+	if(m[x].size() > 1) r = false;
+	for(int i = 0; i < rm[x].size() ; i++){
+		int u = rm[x][i];
+
+		if(v[u] == 0) rdfs(u);
+	}
+}
+
+int main(){
 	cin >> n;
 
-	for (int i = 0; i < n; ++i)
-	{
-		int a, b;
+	for (int i = 0, a, b; i < n; ++i){
 		cin >> a >> b;
-
 		m[a].push_back(b);
+		rm[b].push_back(a);
 	}
 
-	for(int i = 0; i < n; i++)
-	{
-		if (v[i] == 0)
-		{
-			y++;
-			dfs(i);
+	dfs(1);
+
+	for(int i = 1; i <= n; i++) {
+		if (v[i] == 0){
+			r = false;
+			break;
 		}
+		v[i] = 0;
 	}
+	rdfs(1);
 
-
-	if (y > 2)
-	{
+	for(int i = 1; i <= n; i++) if (v[i] == 0){
 		r = false;
+		break;
 	}
 
-	if(r == true)
-	{
-		cout <<"S";
-	}
-	else
-	{
-		cout <<"N";
-	}
+	if(r == false) cout << "N\n";
+	else cout << "S\n";
+
 	return 0;
 }

@@ -4,20 +4,31 @@ using namespace std;
 
 int n, q;
 
-pair<int,int> intervalo[ 100005];
+vector<long long int> v, sec;
 
 int main(void){
     cin >> n;
 
-    for(int i = 0, a, b; i < n; i++){
-        cin >> a >> b;
-        intervalo[i] = {a, b};
+    v.push_back(0);
+    for (int i = 0, k, p; i < n; i++){
+        cin >> k>>p;
+        for (int j = 0; j < k; j++){
+            v.push_back(p);
+        }
+    }
+
+    long long int soma = 0;
+    for(int i = 0; i < v.size(); i++){
+        soma += v[i];
+        sec.push_back(soma);
     }
 
     cin >> q;
 
-    for (int i = 0; i < q; i++){
-        
+    for (int i = 0, x,y; i < q; i++){
+        cin >> x >> y;
+
+        cout << sec[y] - sec[x-1]<< endl;
     }
 
     return 0;
