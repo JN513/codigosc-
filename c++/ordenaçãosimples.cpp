@@ -2,8 +2,7 @@
 
 using namespace std;
 
-int ord(int a, int b)
-{
+int ord(int a, int b){
     return a > b;
 }
 

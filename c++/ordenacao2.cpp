@@ -9,13 +9,11 @@ struct aluno{
   double media;
 };
 
-int func(aluno a, aluno b)
-{
+int func(aluno a, aluno b){
   return a.media > b.media;
 }
 
-int main()
-{
+int main(){
   aluno v[5];
 
   for(int i = 0; i < 5; i++)
