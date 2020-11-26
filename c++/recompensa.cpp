@@ -2,52 +2,93 @@
 
 using namespace std;
 
-int n, q, v[100005], temp=1;
+const int maxn = 1e5+10;
 
-vector <int> m[100005];
-vector <pair<int,int>> t;
-vector <int> r;
+int n, q, dt[maxn], maxx[maxn][2], suf[maxn], ct;
+bool cam[maxn];
+vector<int> graph[maxn], cnh;
 
-void dfs(int x, int c, int d){
-    for(int i = 0; i < (int)m[x].size(); i++){
-        int k = m[x][i];
+bool dfs(const int &u, const int &f){
+	if(u == ct) return cam[u] = true;
+	
+	for(int v: graph[u]){
+		if(v == f) continue;
+		
+		if(dfs(v, u)){
+			cnh.push_back(v);
+			return cam[v] = cam[u] = true;
+		}
+	}
 
-        if(v[k] == -1 && k != c && k != d){
-            temp++;
-            dfs(k, c, d);
-        }
-    }
+	return false;
+}
+
+void caminho(const int &u, const int &f, const bool &flag){	
+	maxx[u][flag] = dt[u];
+
+	for(int v: graph[u]){
+		if(v == f || v == ct) continue;
+		
+		dt[v] = dt[u] + 1;
+
+		caminho(v, u, flag);
+
+		if(!cam[v]) maxx[u][flag] = max(maxx[u][flag], maxx[v][flag]);
+	}
 }
 
 int main(){
-    cin >> n;
+	ios::sync_with_stdio(false); cin.tie(nullptr); cout.tie(nullptr);
 
-    for(int i = 0; i <= n+1; i++) v[i] = -1;
+	cin >> n;
 
-    for(int i = 0; i < n-1; i++){
-        int a, b;
-        cin >> a >> b;
-        m[a].push_back(b);
-        m[b].push_back(a);
-    }
+	for(int i = 1 ; i < n ; ++i) {
+		int u, v;
+		cin >> u >> v;
 
-    cin >> q;
+		graph[u].push_back(v);
+		graph[v].push_back(u);
+	}
 
-    for(int i = 0; i < q; i++){
-        int c, d;
-        cin >> c >> d;
-        t.push_back({c,d});
-    }
+	cin >> q;
 
-    for(int i = 0; i < q; i++){
-        dfs(t[i].first, t[i].first, t[i].second);
-        dfs(t[i].second, t[i].first, t[i].second);
-        r.push_back(temp);
-        temp = 1;
-        for(int i = 0; i <= n+1; i++) v[i] = -1;
-    }
+	for(int i = 0 ; i < q ; ++i){
+		int a, b;
+		cin >> a >> b;
+		
+		cnh.clear();
+		memset(dt, 0, sizeof dt);
+		//memset(suf, 0, sizeof suf);
+		memset(maxx, 0, sizeof maxx);
+		memset(cam, false, sizeof cam);
 
-    for(int i = 0; i < r.size(); i++) cout << r[i] << endl;
+		ct = b;
 
-    return 0;
+		dfs(a, -1);
+		cnh.push_back(a);
+
+		reverse(cnh.begin(), cnh.end());
+
+		int t = cnh.size();
+
+		dt[a] = 1; 
+		caminho(a, -1, 0);
+
+		memset(dt, 0, sizeof dt);
+			
+		ct = a;
+		dt[b] = 1;
+		caminho(b, -1, 1);
+
+		int ans = 0, m = 0;
+
+		for(int j = t ; j >= 1 ; --j){
+			ans = max(ans, maxx[cnh[j - 1]][0] + m);
+			m = max(m, maxx[cnh[j - 1]][1]);
+		}
+	
+		cout << ans - 1 << "\n";
+	}
+
+	return 0;
 }
