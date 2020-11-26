@@ -1,0 +1,11 @@
+Criando codigo assembly e compilando no linux!!!!
+
+Extenção do arquivo: *.asm
+
+Compilando: nasm -f elf64 nome_do_arquivo.asm
+
+Nota se seu S.O. for 32 bits troque elf64 por elf32
+
+Gerando executavel: ld -o nome_de_saida arquivo.o
+
+Verificando  funcionamento: strace ./executaveç
