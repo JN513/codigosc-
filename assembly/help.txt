@@ -8,4 +8,6 @@ Nota se seu S.O. for 32 bits troque elf64 por elf32
 
 Gerando executavel: ld -o nome_de_saida arquivo.o
 
-Verificando  funcionamento: strace ./executaveç
+Verificando  funcionamento: strace ./executavel
+
+Vendo funcionamento do executavel: objdump'-dM intel nome_do_executavel
