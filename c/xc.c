@@ -1,42 +1,43 @@
-//Cristiano, Mauro, Pablo//
-#include <stdio.h>
+/**************************
 
-int main(){
-    int n, m, i , j;
-    printf("-----Matriz Bidimensional-----\n");
-    printf("Informe a dimensão da Matriz (nxm): \n");
-    scanf("%d%d", &n, &m); // tirei o x pois buga no scanf, o %d e mais eficiente que o %i
-    float matriz [n][m];
-    int repete, k, l = -1;
-    printf("---- Matriz ----\n");
-    for(i = 0; i < n; i++)
-        for(j = 0; j < m; j++)
-        do
-        {
-            printf("Elemento (%d,%d): ", i+1, j+1);
-            scanf("%f", &matriz [i][j]);
-        }while(matriz[i][j]>m);
-    
-    for(i = 0; i < n; i++){
-        repete = 1;
-        for(j = 0; j < m; j++){     
-            for(k = j + 1; k < m; k++) if (matriz[i][j] == matriz[i][k])
-                repete = 0;
-                break;
-            }
-            
-            if(repete == 1){
-                l = i;
-                break;
-            }
-        if(l != -1)break;       
+***************************/
+#include <stdio.h>
+#define QUANT 3
+#define PORCENT 100
+#define TAM_NOME
+
+struct material{
+    char nome[40];
+    float quantidade;
+    float valorUn, total;
+};
+
+int main(void){
+    struct material materiais[QUANT];
+    float valTotCada = 0, valTotal = 0, calcPercent = 0, totGasto = 0;
+
+
+    printf("\n--------Entrada de Materiais--------\n");
+
+    for (int i = 0; i < QUANT; i++){
+        printf("Digite o nome do material(%i): ", i+1);
+        scanf("%s", materiais[i].nome);//[^\n]
+        printf("Digite a quantidade do material: ");
+        scanf("%f", &materiais[i].quantidade);
+        printf("Digite o valor do material(R$): ");
+        scanf("%f", &materiais[i].valorUn);
+        fflush(stdin);
+        materiais[i].total = materiais[i].quantidade * materiais[i].valorUn; 
+        valTotal +=  materiais[i].total;     
     }
-    
-    printf("Primeira linha sem número repetido: %d \n", l+1); // somo mais um a l, pois a matriz esta em uma escala de 0 a n && 0 a m
-                                                              // então somo mais um para mudar para escala apartir de 1
-    for(j = 0; j < m; j++) printf("%.2f ",matriz[l][j]);      // uso %f pois a matriz e ponto flutuande (float) e %d e para decimal
-    printf("\n");
-    
-    return 0;           
+
+    for(int i = 0; i < QUANT; i++){
+        calcPercent = materiais[i].total/valTotal * PORCENT;
+        printf("Material: %s\nValor unitario: %.2f\nValor total: %.2f\nPercentual: %.2f.\n", materiais[i].nome, materiais[i].valorUn, materiais[i].total, calcPercent);
+    }
+
+        
+    printf("O valor total gasto é: %.2f.\n", valTotal);  
+        
+    return 0;
 }
-/* O numero a  ser informado tem que ser menor ou igual ao número maximo de colunas*/
