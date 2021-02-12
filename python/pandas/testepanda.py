@@ -1,11 +1,12 @@
 import pandas as pd
-pd.set_option('display.max_rows', 100) # se trocar rows por columns muda das colunas
 
-dataset = pd.read_csv('python/pandas/db.csv', sep=';')
+pd.set_option("display.max_rows", 100)  # se trocar rows por columns muda das colunas
 
-#print(dataset)
-#print(dataset.dtypes) #tipo dos dados das colunas
+dataset = pd.read_csv("python/pandas/db.csv", sep=";")
 
-a = dataset[['Quilometragem','Valor']].describe() #descrição dos dados, estatisticas
+# print(dataset)
+# print(dataset.dtypes) #tipo dos dados das colunas
+
+a = dataset[["Quilometragem", "Valor"]].describe()  # descrição dos dados, estatisticas
 
 print(a)

@@ -1,3 +1,10 @@
-n = input('Digite algo: ')
+n = input("Digite algo: ")
 
-print(f'É numérico?', n.isnumeric(), '\nÉ alfabeto?', n.isalpha(), '\nÉ alfanumérico?', n.isalnum())
+print(
+    f"É numérico?",
+    n.isnumeric(),
+    "\nÉ alfabeto?",
+    n.isalpha(),
+    "\nÉ alfanumérico?",
+    n.isalnum(),
+)

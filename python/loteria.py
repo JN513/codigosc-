@@ -8,12 +8,12 @@ for c in v:
         r += 1
 
 if r == 3:
-    print('terno')
+    print("terno")
 elif r == 4:
-    print('quadra')
+    print("quadra")
 elif r == 5:
-    print('quina')
+    print("quina")
 elif r == 6:
-    print('sena')
+    print("sena")
 else:
-    print('azar')
+    print("azar")

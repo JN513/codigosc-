@@ -1,6 +1,6 @@
 import numpy as np
 
-lista = [15,20,30]
+lista = [15, 20, 30]
 
 km = np.array(lista)
 
