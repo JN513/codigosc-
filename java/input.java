@@ -14,5 +14,7 @@ public class input {
         double peso = entrada.nextDouble();
 
         System.out.printf("%s %d %.2f\n", name,idade,peso);
+
+        entrada.close();
     }
 }
