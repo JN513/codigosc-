@@ -3,7 +3,7 @@
 using namespace std;
 
 const int altura = 20;
-const int largura = 40;
+const int largura = 20;
 
 void desenhotelajogo(){
 
