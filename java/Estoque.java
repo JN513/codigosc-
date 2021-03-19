@@ -1,4 +1,7 @@
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.time.LocalDateTime;
 
 class Produto {
@@ -60,6 +63,8 @@ class Produto {
 
 public class Estoque {
     public static void main(String[] args){
+        ArrayList<Produto> produtos = new ArrayList<Produto>();
+
         Scanner scan = new Scanner(System.in);
 
         Produto produtinho = new Produto(0, "Xablau", 12.5, 10);
