@@ -23,6 +23,7 @@ void fatorial(int resp[], int tamanho, int numero){
             resp[tamanho] = transporte%10;
             transporte = transporte/10;
             tamanho++;
+            printf("%d\n", transporte);
         }
     }
 

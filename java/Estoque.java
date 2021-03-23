@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.time.LocalDateTime;
+import javax.swing.*;
 
 class Produto {
     private LocalDateTime criado_em;
@@ -61,7 +62,36 @@ class Produto {
     }
 }
 
-public class Estoque {
+public class Estoque extends javax.swing.JFrame {
+
+    public Estoque() {
+        initComponents();
+    }
+
+    private void initComponents(){
+        label1 = new JLabel("Olá");
+
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+
+        botao1.setText("OK");
+        botao1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botao1ActionPerformed(evt);
+            }
+        });
+
+        add(label1);
+        add(botao1);
+    }
+
+    private void botao1ActionPerformed(evt){
+        if(label1.getText() == "Olá"){
+            label1.setText("Blz");
+        }else{
+            label1.setText("Olá");
+        }
+    }
+
     public static void main(String[] args){
         ArrayList<Produto> produtos = new ArrayList<Produto>();
 
@@ -96,5 +126,33 @@ public class Estoque {
         }
 */
         scan.close();
+
+        try {
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(JFrameValeriano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(JFrameValeriano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(JFrameValeriano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(JFrameValeriano.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Estoque().setVisible(true);
+            }
+        });
     }
+
+    private JLabel label1;
+    private JButton botao1;
 }
