@@ -16,7 +16,7 @@ bool ver(int x, int y){ //crio minha variavel para verificar os limites
 }
 
 void djaska(int x, int y){
-    priority_queue <pair<pair<int,int>, int>> fila;
+    priority_queue <pair<pair<int,int>, int> vector <pair <pair<int,int>, int>> , greater<pair<pair<int,int>, int> >> fila;
     distancia[x][y] = 0;
 
     fila.push({{x,y}, distancia[x][y]});
@@ -55,6 +55,7 @@ int main(){
     for(int i = 0; i <= n; i++)
     for(int j = 0; j <= n; j++) {
         cin >>m[i][j];
+        distancia[i][j] = oo;
     }
 
     djaska(0,0);
