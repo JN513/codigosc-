@@ -1,49 +1,59 @@
 #include <bits/stdc++.h>
 
+#define ll long long int
+#define nl endl
+
 using namespace std;
 
-vector <int> r;
+int n, m;
 
-int main(){
-    int x, y;
+struct Piloto{
+    int id, pontos, posicao[105];
+};
 
-    cin >> x >> y;
-
-    while (x != 0 && y != 0){
-        int m[105][105], v[105], s;
-
-        for(int i = 0; i < x; i++)
-            for (int j = 0; j < y; j++) cin >> m[i][j];
-
-        cin >> s;
-        for(int i = 0; i < s; i++){
-            int w;
-            cin >> w;
-            for (int j = 0; j < w; j++){
-                int pon;
-                cin >> pon;
-                for (int k = 0; k < x; k++) v[m[k][j]] += pon;
+int main(void){
+    while(cin >> n >> m && (n+m)){
+        Piloto v[m+1];
+        for(int i = 0; i < n; i++){
+            for(int j = 0; j < m; j++){
+                cin >> v[j].posicao[i];
+                v[j].id = j+1;
+                v[j].pontos = 0;
             }
-            int a = 0;
-            for (int i = 1; i <= y; i++) 
-            if(v[i] > a) {
-                a = v[i];
-                r.clear();
-                r.push_back(i);
-            }
-            else if(v[i] == a) r.push_back(i);
-
-            sort(r.begin(), r.end());
-
-            for (int i = 0; i < r.size(); i++) cout << r[i]<<" ";
-            cout <<endl;
-            r.clear();
-            for(int i = 0; i <= y+1; i++) v[i] = 0;
         }
 
-        cin >> x >> y;
+        int k;
+        cin >> k;
+        for(int i = 0, a; i < k; i++){
+            cin >> a;
+            for(int j = 0, y; j < a; j++){
+                cin >> y;
+                for(int z = 0; z < n; z++){                    
+                    for(int w = 0; w < m; w++){
+                        if(v[w].posicao[z] == j+1){
+                            v[w].pontos += y;
+                        }
+                    }
+                }
+            }
+
+            sort(v, v+m, [](Piloto a, Piloto b){
+                if(a.pontos != b.pontos) return a.pontos > b.pontos;
+                else return a.id < b.id;
+            });
+
+            cout << v[0].id << " ";
+
+            for(int i = 1; i < m; i++){
+                if(v[i].pontos == v[i-1].pontos) cout << v[i].id << " ";
+                else break;
+            }
+
+            cout << nl;
+
+            for(int i = 0; i < m; i++) v[i].pontos = 0;
+        }
     }
-    
 
     return 0;
 }
