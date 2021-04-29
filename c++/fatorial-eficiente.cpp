@@ -23,11 +23,10 @@ void fatorial(int resp[], int tamanho, int numero){
             resp[tamanho] = transporte%10;
             transporte = transporte/10;
             tamanho++;
-            printf("%d\n", transporte);
         }
     }
 
-    printf("Tamanho %d\n",tamanho);
+    printf("Quantidade de digitos: %d\n",tamanho);
 
     printf("Resultado: ");
 
@@ -38,10 +37,14 @@ void fatorial(int resp[], int tamanho, int numero){
     printf("\n");
 }
 
-int main(void){
+int main(int argc, char *argv[]){
     int resp[TAM], tamanho=1, numero;
 
-    scanf("%d",&numero);
+    if(argc > 1){
+        numero = atoi(argv[1]);
+    }else{
+        scanf("%d",&numero);
+    }
 
     resp[0]=1;
 

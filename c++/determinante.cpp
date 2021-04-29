@@ -57,7 +57,7 @@ int main(void){
         }
     }
 
-    cout << Laplace(n, matriz) << endl;
+    cout << "Determinate: "<< Laplace(n, matriz) << endl;
 
     return 0;
 }

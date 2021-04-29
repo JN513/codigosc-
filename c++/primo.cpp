@@ -13,10 +13,14 @@ bool eh_primo(int x){
     if(div > 1) return false;
 }
 
-int main(void){
+int main(int argc, char *argv[]){
 	int x;
 
-	cin >> x;
+    if(argc > 1){
+        x = atoi(argv[1]);
+    }else{
+        cin >> x;
+    }
 
 	if(eh_primo(x)) cout << "S" << "\n";
 	else cout << "N" << "\n";
