@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var nome = prompt("Insira o seu nome");
+        var peso = prompt("Insira o seu peso: ");
+        var altura = prompt("Insira sua altura: ");
+
+        peso = parseFloat(peso);
+        altura = parseFloat(altura);
+
+        var imc = peso/(altura*altura);
+
+        if(imc < 18.5){
+            alert(`${nome}. Seu IMC e: ${imc.toFixed(2)}, você esta MAGRO`)
+        }else if(imc >= 18.5 && imc < 24.9){
+            alert(`${nome}. Seu IMC e: ${imc.toFixed(2)}, você esta NORMAL`)
+        }else if(imc >= 24.9 && imc <= 30){
+            alert(`${nome}. Seu IMC e: ${imc.toFixed(2)}, você esta Acima do PESO`)
+        }else{
+            alert(`${nome}. Seu IMC e: ${imc.toFixed(2)}, você esta OBESO`)
+        }
+    </script>
+</body>
+</html>
