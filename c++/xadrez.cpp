@@ -18,7 +18,7 @@ int main()
         else if(m[i-1][j] == 0 || m[i][j - 1] == 0 )
               m[i][j] = 1;
     }
-    cout << m[k - 1][w - 1];
+    cout << m[k - 1][w - 1] << endl;
 
     return 0;
     }
