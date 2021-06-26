@@ -1,61 +1,62 @@
 #include <bits/stdc++.h>
 
-#define ll long long int
 #define nl endl
+#define int long long
 
 using namespace std;
 
-int n, m;
-int v[1005];
+int n, m, k;
+int v[1010];
 
-vector <pair<int,int>> grafo[110];
+vector < pair<int,int> > grafo[1010];
 
-void bfs(int k){
-    queue < pair<int,int> > fila;
+void dijkstra(){
+    priority_queue<pair<int,int> , vector<pair<int,int>> , greater<pair<int,int>>>fila;
 
-    int x = grafo[k].first;
-    int y = grafo[k].second;
-
-    fila.push({x,y});
-
-    v[x] = y;
+    fila.push({0,k});
+    v[k] = 0;
 
     while(!fila.empty()){
-
-        x = fila.front().first;
-        y = fila.front().second;
-
+        int node = fila.top().second;
+        int peso = fila.top().first;
         fila.pop();
 
-        for(int i = 0; i < grafo[x].size(); i++){
-            int u = grafo[x][i].first;
-            int w = grafo[x][i].second;
+        if(peso > v[node]) continue;
 
-            if(v[u] == 0){
-                v[u] = v[x]+w;
-
-                fila.push({u, w});
+        for(auto a : grafo[node]){
+            if(v[a.second] > v[node]+a.first){
+                v[a.second] = v[node]+a.first;
+                fila.push({v[a.second], a.second});
             }
         }
     }
 }
 
-int main(void){
+int32_t main(void){
     cin >> n >> m;
+
+    for(int i = 0; i < n+1; i++) v[i] = 9999999;
 
     for(int i = 0; i < m; i++){
         int a, b, c;
         cin >> a >> b >> c;
 
-        grafo[a].push_back({b,c});
-        grafo[b].push_back({a,c});
+        grafo[a].push_back({c,b});
+        grafo[b].push_back({c,a});
     }
 
-    bfs(1);
+    cin >> k;
 
-    sort(v+1, v+n+1);
+    dijkstra();
 
-    cout << v[n]-v[1] << nl;
+    int maior = -1, menor = 9999999;
+
+    for(int i = 1; i <= n; i++){
+        if(v[i] != 0) menor = min(menor,v[i]);
+        maior = max(maior, v[i]);
+    }
+
+    cout << maior-menor << nl;
 
     return 0;
 }
