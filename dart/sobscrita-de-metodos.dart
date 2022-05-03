@@ -1,34 +1,69 @@
-//Consigo acessar atributos e métodos static sem a necessidade de criação de um objeto. Consigo acessar de forma direta.
-//final não deixa ou permite a criação de um novo objeto. Crio apenas uma vez.
-class Configuracoes {
+class Animal {
  
-  static String identificadorApp = "5646545645";
-  static String notificacaoSom = "Yes";
+  String cor;
  
-  static void configuracaoInicial(){
-    print( "Executa configuracoes iniciais" );
+  Animal(this.cor);
+ 
+  void dormir(){
+    print("Dormir");
+  }
+ 
+  void correr(){
+    print("Correr Super");
+  } 
+}
+
+class Cao extends Animal {
+  String corOrelha;
+ 
+  Cao(String cor, this.corOrelha) : super(cor); //passando cor para o construtor de Animal
+ 
+  void latir(){
+    print("Latir");
+  }
+ 
+  @override //sobrepor
+  void correr(){
+    super.correr();
+    print("Cão!");
+  }
+}
+
+class Passaro extends Animal {
+  String corBico;
+ 
+  Passaro(String cor, this.corBico) : super(cor);
+ 
+  void voar(){
+    print("Voar");
+  }
+ 
+  @override //sobrepor
+  void correr(){
+    super.correr();
+    print("Pássaro!");
   }
  
 }
-
-class Conta {
-  String valor = "";
-}
-
 void main() {
  
-  //Modificadores Static e Final
-  //Configuracoes config = Configuracoes(); 
-  //Nao preciso criar o objeto
-  Configuracoes.configuracaoInicial();
-  print( Configuracoes.identificadorApp);
-  print( Configuracoes.notificacaoSom );
+  Cao cao = Cao("Marrom", "Branco");
+  Passaro passaro = Passaro("Vermelho", "Amarelo");
+  cao.correr();
+  passaro.correr(); 
  
-  final Conta conta = Conta();
-  conta.valor = "Rodrigo";
-  //conta = Conta();
-  //com o modificador final não posso zerar o objeto
+  //print( "Passaro cor: ${passaro.cor} corBico: ${passaro.corBico} " );
  
-  print( conta.valor );
+  /*
+  cao.cor = "Branco";
+  cao.corOrelha = "Preto";
+  print( "Cor do cão: " + cao.cor );
+  print( "Cor da orelha: " + cao.corOrelha );
+  cao.latir();
+ 
+  passaro.cor = "Marrom";
+  print( passaro.cor );
+  passaro.voar();
+  */
  
 }

@@ -7,6 +7,12 @@ void exibirMensagemSemP(){
     print("Mensagem sem parametros");
 }
 
+void printtext(String text){
+    print(text);
+}
+
+void sum(int x,int y) => print('sum is ${ x + y}');
+
 double calcularSalario(double salario){
     var total = salario - (salario * 0.1);
     return total;
@@ -15,15 +21,21 @@ double calcularSalario(double salario){
 
 //double calcularSalario(double salario) => salario - (salario * 0.1);
 
+void printname(String name, Function func){
+    print("Nome: $name");
+
+    func();
+
+}
+
 void main() {
-    exibirMensagem("Rodrigo", 10);
-    double bonus = 500;
-    double resultado = calcularSalario(1000);
-    double total = resultado + bonus;
-    print("salario total: $total ");
-/*
-exibirMensagem("Rodrigo", 30);
-exibirMensagem("Pedro", 45);
-*/
+  var hello = "Hello World";
+
+    print("O texto e ${hello}");
+
+
+    printname("João", (){
+        print("Nome: João");
+    });
 }
 

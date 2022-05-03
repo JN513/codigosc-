@@ -4,14 +4,14 @@ class Usuario {
   String senha = "";
   String cargo = "";
 
-  //Usuario(this.usuario, this.senha, this.cargo);//outra forma de construtor
-
+  Usuario(this.usuario, this.senha, this.cargo);//outra forma de construtor
+/*
   Usuario(String usuario, String senha, String cargo) {
     this.usuario = usuario;
     this.senha = senha;
     this.cargo = cargo;
   }
-
+*/
   /*void imprimir(){
 print("Usuario" + usuario);
 print("Senha" + senha);

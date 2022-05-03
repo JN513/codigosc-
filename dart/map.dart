@@ -22,6 +22,7 @@ void main() {
   Map<String, String> estados = Map();
   estados["SP"] = "São Paulo";
   estados["MG"] = "Minas Gerais";
+  //estados["MG"] = "Belo Horizonte";
   estados["RJ"] = "Rio Janeiro";
  
   Map<String, dynamic> usuarios = Map();
@@ -38,7 +39,7 @@ void main() {
       (chave, valor) => print(" $chave - $valor ")
   );
  
-  //print( estados );
+  print( estados );
  
 }
 
