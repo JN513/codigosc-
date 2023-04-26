@@ -1,2 +1,7 @@
-6 
-2 7 
+correct
+correct
+incorrect
+incorrect
+correct
+incorrect
+incorrect
